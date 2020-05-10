@@ -92,5 +92,39 @@ def add_and_sub(long=2, num_range=(0, 100), method=None, num=100, allow_zero=Tru
     return None
 
 
+def multi_and_divide(factor_range=(0, 9), method=None, num=100, random_blank=True):
+    # 定义运算符号
+    if not method:
+        method = ['*', '/']
+    if isinstance(method, str):
+        method = list(method)
+    n = 0
+
+    while n < num:
+        a = random.randint(factor_range[0], factor_range[1])
+        b = random.randint(factor_range[0], factor_range[1])
+        c = a * b
+        # 设置符号
+        m = random.sample(method, 1)[0]
+        if m == "/":
+            d = c
+            c = a
+            a = d
+            m = "÷"
+        elif m == "*":
+            m = 'x'
+        if random_blank:
+            que = random.sample([
+                f"□ {m} {b} = {c}",
+                f"{a} {m} □ = {c}",
+                f"{a} {m} {b} = □",
+            ], 1)[0]
+        else:
+            que = f"{a} {m} {b} = □"
+        print(que)
+        n += 1
+    return None
+
+
 if __name__ == "__main__":
-    print(add_and_sub(long=2, num_range=(0, 50), method='+-'))
+    multi_and_divide(factor_range=(0, 10), method='/*')
