@@ -1,5 +1,10 @@
 # KevinTools
 Kevin生活中的小工具
+## AutoReader
+自动朗读文本的程序
+### reader
+自动朗读文本的程序
+
 ## ElementarySchool
 用于给小朋友自动出测试题之用
 ### MathsTest
